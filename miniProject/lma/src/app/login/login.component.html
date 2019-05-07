@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+    <h1> {{pageTitle}}</h1>
+      </div>
+   <div class="card-body">
+      <div class="container">
+     <form (ngSubmit)='doLogin(f)' #f='ngForm'>
+    <div class="form-group row">
+      <label class="col-md-2 col-from-level"> User Name</label>
+      <div class="col-md-8">
+        <input type="text" id="userNameId" name="userName" class="form-control"
+        placeholder="User Name (required)" 
+        required   
+        [(ngModel)]="userName"
+         #userNameVar='ngModel'
+         />
+    <span class="invalid-feedback">
+      <span *ngIf="!userNameVar.valid">
+        User name is required.
+      </span>
+
+    </span>
+      </div>
+    </div>
+   <div class="form-group row">
+      <label class="col-md-2 col-form--label">Password</label>
+      <div class="col-md-8">
+         <input id="passwordId" type="password" placeholder="Password (required)" class="form-control"
+          required name="password" 
+          [(ngModel)]="password"
+          #passwordVar='ngModel'
+          />
+      </div>
+   </div>
+
+   <div class="row">
+     <div class="col-md-4 offset-md-2">
+     <button class="btn btn-primary mr-3" type="submit"  [disabled]='!f.valid'
+       style="width:75px" >Log In</button>
+     <button class="btn btn-outline-secondary"
+     type="button" style="width:80px" (click)="doCancel()"> Cancel</button>
+    </div>
+
+   </div>
+  </form>
+   </div>
+  </div>
+   
+</div>

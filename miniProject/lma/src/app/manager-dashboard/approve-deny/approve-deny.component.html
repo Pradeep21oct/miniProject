@@ -1,0 +1,150 @@
+<div class="container" >
+  <div>
+    <div>
+      <h1>Approve Deny Leave</h1>
+    </div><br>
+    <div class="row">
+      <div class="col-lg-2">
+      </div>
+      <div class="col-lg-3">
+        <table>
+          <tr>
+            <td><div>Employee Id:</div></td>
+            <td><div>{{ leaveDetails.empId }}</div></td>
+          </tr>
+          <tr>
+            <td><div>Employee Name:</div></td>
+            <td><div>{{ leaveDetails.name }}</div></td>
+          </tr>
+          <tr>
+            <td><div>Leave Balance:</div></td>
+            <td><div>{{ leaveDetails.balanceLeave }}</div></td>
+          </tr>
+        </table>
+         </div>
+      <div class="col-md-2"></div>
+      <div class="col-lg-3">
+        <table>
+          <tr>
+            <td><div>Start Date:</div></td>
+            <td><div>{{ leaveDetails.startDate|date:'shortDate' }}</div></td>
+          </tr>
+          <tr>
+            <td><div>End Date:</div></td>
+            <td><div>{{ leaveDetails.endDate|date:'shortDate' }}</div></td>
+          </tr>
+          <tr>
+            <td><div>Number of Days:</div></td>
+            <td><div>{{ leaveDetails.noOfDays }}</div></td>
+          </tr>
+          <tr>
+            <td><div>Leave Type:</div></td>
+            <td><div>{{ leaveDetails.leaveType }}</div></td>
+          </tr>
+          <tr>
+            <td><div>Reason:</div></td>
+            <td><div>{{ leaveDetails.reason }}</div></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+
+    
+    <div class="row">
+      <div class="col-lg-2"></div>
+        <div class="col-lg-5">
+          <table class="comments">
+            <tr>
+              <td class="comment">Comments:</td>
+              <td class="textarea">
+                <textarea class="form-control z-depth-1" id="comments" rows="3" [(ngModel)]="leaveDetails.managerComments"></textarea>
+              </td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <br>
+    
+    <table class="buttons">
+      <tr>
+      <td>
+        <button id="approved" class="btn btn-primary" (click)="approve($event.target.id)">Approve</button>
+      </td>
+      <td>
+        <button id="denied" class="btn btn-primary" (click)="deny($event.target.id)">Deny</button>
+      </td>
+      <td>
+        <button class="btn btn-primary" (click)="cencle()">Cancel</button>
+      </td>
+    <tr>
+  </table>
+
+  </div>
+</div>
+
+
+<!--
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+  
+    <div class="card-body" >
+  <div class="container">
+          <div class="row" >
+  
+        <div class="col-md-8">
+          <div class="row" >
+            <div class="col-md-3"><strong>Employee Id:</strong></div>
+            <div class="col-md-3"> 1234</div>
+             <div class="col-md-3"><strong> Start Date </strong> </div>
+             <div class="col-md-3"> '02/12/2019'</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3"><strong>Employee Name:</strong> </div>
+             <div class="col-md-3">  Jhon</div>
+             <div class="col-md-3"><strong>End Date:</strong> </div>
+             <div class="col-md-3">  '03/22/2019'</div>
+           
+          </div>
+          <div class="row">
+            <div class="col-md-3"><strong>Leave Balance:</strong> </div>
+            <div class="col-md-3"> 10</div>
+            <div class="col-md-3"><strong>Number Of Days:</strong> </div>
+            <div class="col-md-3"> 5</div>
+           </div>
+          <div class="row">
+            <div class="col-md-3"><strong>Leave Type:</strong> </div>
+            <div class="col-md-3">EL</div>
+            <div class="col-md-3"><strong>Reason:</strong> </div>
+            <div class="col-md-3">test </div>
+          </div>
+        
+          
+          <div class="row" style="margin-top: 20px;">
+           
+            <div class="col-md-3"><strong>Comments:</strong> </div>
+            <div class="col-md-9"> 
+                <textarea rows="2" cols="50" name="reason" ></textarea>
+              
+              </div>
+          </div> 
+
+          <div class="row" style="margin-top: 50px;">
+              <div class="col-md-3 offset-md-3">
+                <button class="btn btn-primary mr-3" (click)='approvaDney();' >Approve</button>
+              </div>
+              <div class="col-md-3 ">
+                  <button class="btn btn-primary mr-3" (click)='approvaDney();' > Deny  </button>
+                </div>
+                <div class="col-md-3 ">
+                    <button class="btn btn-primary mr-3" (click)='approvaDney();' >  Cancel   </button>
+                  </div>
+            </div>
+            </div>
+      </div>
+    </div>
+    </div>
+  </div>-->
+  

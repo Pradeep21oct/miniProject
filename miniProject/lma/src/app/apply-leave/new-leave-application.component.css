@@ -1,0 +1,10 @@
+input,textarea, select{
+    width: 50%;
+}
+  
+  .ng-invalid:not(form)  {
+    border-right: 2px solid #a94442; /* red */
+  }
+  button { white-space: nowrap; 
+             text-align:center; 
+             }

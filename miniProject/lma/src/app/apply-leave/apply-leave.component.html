@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-header">
+ <h1>  <strong> {{pageTitle}}</strong></h1>
+  </div>
+
+  <div class="card-body">
+
+   <div class="table-responsive">
+      <table class="table  table-striped table-hover">
+        <thead>
+          <tr style="color: blue;">
+            <th>
+             Leave Id
+            </th>
+            <th>Number of Days</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Leave Type</th>
+            <th>Status</th>
+            <th>Reason</th>
+            <th>Applied On</th>
+            <th>Manager Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ll of leavehistry">
+            <td>
+              {{ll.leaveId}}
+            </td>
+            <td>
+                {{ll.noOfDays}}
+            </td>
+            <td> {{ll.startDate|date:'shortDate'}}</td>
+            <td> {{ll.endDate|date:'shortDate'}}</td>
+            <td> {{ll.leaveType}}</td>
+            <td>
+                {{ll.leaveStatus}}
+            </td>
+            <td>
+                {{ll.reason}}
+            </td>
+            <td>
+                {{ll.appliedOn|date:'shortDate'}}
+            </td>
+            <td>
+                {{ll.managerComments}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+  
+</div>
+<div class="row" style="margin-top: 50px;">
+  <div class="col-md-2 offset-md-10">
+    <button class="btn btn-primary mr-3" (click)='applyNewLeave()' >New Application</button>
+  </div>
+</div>

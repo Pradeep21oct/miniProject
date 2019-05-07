@@ -1,0 +1,105 @@
+<div class="card">
+  <div class="card-header">
+  <h1>  New Leave Application</h1>
+  </div>
+
+  <div class="card-body">
+ 
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)" >
+      <div class="form-content">
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" >Start Date</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="startDate"
+                 name="startDate"
+                 type="date"
+                required 
+                #startDate="ngModel"
+                [(ngModel)]="model.startDate" 
+                min="new Date().value"
+                />
+            </div>
+            <div [hidden]="startDate.valid || startDate.pristine"  style="width: 50%;"
+            class="alert alert-danger">
+            Start date is required
+            </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" >End Date</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 name="endDate"
+                 type="date"
+                 for="endDate" required  [(ngModel)]="model.endDate"
+                 #endDate="ngModel" (change)="calDate(f)" min="startDate.value"/>
+            </div>
+            <div [hidden]="endDate.valid || endDate.pristine"  style="width: 50%;" 
+            class="alert alert-danger">
+            End date is required
+            </div>
+            <div *ngIf="endDate.value<startDate.value"  style="width: 50%;"
+            class="alert alert-danger">
+            End date must be greate than start date.
+            </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"  >Number Of Days</label>
+        <div class="col-md-8" >
+            <input class="form-control"
+            name="noOfDays"
+            type="text"
+            for="noOfDays" readonly  [(ngModel)]="model.noOfDays"
+            #noOfDays="ngModel" [value]="'model.noOfDays'"/>
+           </div>
+           <div *ngIf="model.noOfDays<0"  style="width: 50%;"
+           class="alert alert-danger col-md-8">
+           Must be greater than zero
+    </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" >Leave Type</label>
+        <div class="col-md-8">
+            <select class="form-control"
+             name="leaveType" 
+            required
+            #leaveType="ngModel"
+            [(ngModel)]="model.leaveType">
+                <option *ngFor="let leave of leaveTypes" [value]="leave">{{leave}}</option>
+              </select>
+      </div>
+      <div [hidden]="leaveType.valid || leaveType.pristine" 
+            class="alert alert-danger"  style="width: 50%;">
+            Leave Type is required
+     </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form-label" >Reason</label>
+      <div class="col-md-8">
+          <textarea rows="2" cols="50" class="form-control" 
+            name="reason"
+          [(ngModel)]="model.reason" required
+          #reason="ngModel">
+            </textarea>
+      
+      </div>
+      <div [hidden]="reason.valid || reason.pristine" 
+            class="alert alert-danger col-md-8">
+            Reason is required
+     </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+        <button class="btn btn-primary mr-3" type="submit" 
+          style="width:25%" [disabled]="!f.form.valid ||model.noOfDays<0" >Apply</button>
+        <button class="btn btn-outline-secondary" (click)='onCancel()'
+        type="button" style="width:26%" > Cancel</button>
+       </div>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

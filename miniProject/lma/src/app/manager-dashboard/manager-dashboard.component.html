@@ -1,0 +1,145 @@
+
+
+
+<h2>My Reporting Employees' Pending Leave Applications Section</h2><br><br>
+<div ng-app="myApp" ng-controller="leaveTable">
+<table style="width:100%">
+  
+  <ng-container *ngFor="let emp of leaveData">
+    <tr>
+      <th colspan="2">Employee ID:</th>
+      <th>{{emp.empId}}</th>
+      <th colspan="2">Employee Name:</th>
+      <th>{{emp.name}}</th>
+      <th colspan="1">Employee Leave Balance: </th>
+      <th>{{emp.balanceLeave}}</th>
+    </tr>
+    <tr>
+     
+      <th>Leave ID</th>
+      <th># of Days</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Leave Type</th>
+      <th>Status</th>
+      <th colspan="2">Reason</th>
+    </tr>
+    <ng-container *ngFor="let leav of emp.leaveHistory">
+      <tr (click)="onSelected(leav)" [ngClass]="{'highlight':leav.leaveId==leaveId}">
+       
+        <td>{{leav.leaveId}}</td>
+        <td>{{leav.noOfDays}}</td>
+        <td>{{leav.startDate|date:'shortDate'}}</td>
+        <td>{{leav.endDate|date:'shortDate'}}</td>
+        <td>{{leav.leaveType}}</td>
+        <td>{{leav.leaveStatus}}</td>
+        <td colspan="2">{{leav.reason}}</td>
+      </tr>
+    </ng-container>
+  </ng-container>
+
+  
+</table>
+</div>
+<br>
+
+<button type="button" (click)="approveDney()">Approve/Deny</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="card">
+  <div class="card-header">
+   <strong> {{pageTitle}}</strong>
+  </div>
+
+  <div class="card-body">
+
+   <div class="table-responsive">
+     
+      <table class="table  table-striped table-hover" style=" border: 1px;">
+          <thead>
+            <tr style="color:white; background-color:blue">
+              <th>
+                Employee Id
+               </th>
+              <th>
+              1234
+              </th>
+              <th>Employee Name</th>
+              <th>Mike</th>
+              <th>Leave Balance</th>
+              <th>10</th>
+              
+             
+            </tr>
+          </thead>     
+        </table>
+
+
+      <table class="table  table-striped table-hover">
+        <thead>
+          <tr style="color: blue;">
+            <th>
+              
+             </th>
+            <th>
+             Leave Id
+            </th>
+            <th>Number of Days</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Leave Type</th>
+            <th>Status</th>
+            <th>Reason</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+           <td>
+               <input type="radio"
+                 ng-model="name"
+                  ng-value="specialValue"
+                   name="requestedAction" value="">
+            </td>
+            <td>
+              11
+            </td>
+            <td>
+               22
+            </td>
+            <td> 22</td>
+            <td> 222</td>
+            <td> el</td>
+            <td>
+               fff
+            </td>
+            <td>
+               rfgg
+            </td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+  
+</div>
+<div class="row" style="margin-top: 50px;">
+  <div class="col-md-2 offset-md-10">
+    <button class="btn btn-primary mr-3" (click)='approvaDney();' >Approve/Deny</button>
+  </div>
+</div>
+-->

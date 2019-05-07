@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+       <h1> {{pageTitle}}</h1>
+      </div>
+   <div class="card-body">
+      <div class="container-fluid">
+          <div class="text-center">
+    <div class="form-group row">
+     
+      <div class="col-md-8">
+          <button class="btn btn-primary mr-3" type="submit"  style="width:150px" (click) ="getDetails()">My Details</button>
+         <button class="btn btn-primary mr-3" type="submit" style="width:180px" (click) ="getManagerDetails()">My Manager Details</button>
+      </div>
+    </div>
+   <div class="form-group row">
+      <div class="col-md-8">
+          <button class="btn btn-primary mr-3" type="submit"  style="width:350px" (click) ="leaveHistory()">My Leave Application</button>
+      </div>
+   </div>
+
+   <div class="row">
+     <div class="col-md-8 ">
+     <button class="btn btn-primary mr-3" type="submit" 
+       style="width:350px" (click) ="getManagerDashboard()" >Pending Leave Application of My Reportee</button>
+    
+     </div>
+
+    </div>
+  </div>
+   </div>
+   </div>
+   
+</div>
